@@ -183,6 +183,10 @@ PRODUCT_PACKAGES += \
 # Fingerprint feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
+    vendor/pa/config/permissions/vendor.pa.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.pa.biometrics.fingerprint.inscreen.xml
+
+PRODUCT_PACKAGES += \
+    vendor.pa.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile
 
 # Ipsec_tunnels feature
 PRODUCT_COPY_FILES += \
