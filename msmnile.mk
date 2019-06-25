@@ -247,6 +247,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.power.pasrmanager@1.0-impl \
     pasrservice
 
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl.oneplus_msmnile \
+    android.hardware.sensors@1.0-service.oneplus_msmnile \
+
 # Sensor conf files
 PRODUCT_COPY_FILES += \
     device/oneplus/7series/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
