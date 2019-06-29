@@ -7,9 +7,14 @@
 # Product-specific compile-time definitions.
 #
 
+COMMON_PATH := device/oneplus/7series
+
 # Platform
 TARGET_BOARD_PLATFORM := msmnile
 TARGET_BOOTLOADER_BOARD_NAME := msmnile
+
+# Namespace
+PRODUCT_SOONG_NAMESPACES += $(COMMON_PATH)
 
 # Architechture
 TARGET_ARCH := arm64
