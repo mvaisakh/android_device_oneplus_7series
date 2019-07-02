@@ -150,6 +150,10 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_HW_DISK_ENCRYPTION_PERF := true
 
+# Fingerprint
+SOONG_CONFIG_NAMESPACES += oneplusMsmnileFodPlugin
+SOONG_CONFIG_oneplusMsmnileFodPlugin := posX posY size
+
 BOARD_USES_GENERIC_AUDIO := true
 TARGET_NO_RPC := true
 
