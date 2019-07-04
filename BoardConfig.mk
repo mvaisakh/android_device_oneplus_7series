@@ -160,7 +160,7 @@ USE_SENSOR_MULTI_HAL := true
 USE_SENSOR_HAL_VER := 2.0
 
 # Sepolicy
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Treble
 BOARD_VNDK_VERSION := current
