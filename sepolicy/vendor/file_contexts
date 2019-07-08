@@ -1,3 +1,6 @@
 # Files in rootfs
 /op1(/.*)?    u:object_r:op1_file:s0
 /op2(/.*)?    u:object_r:op2_file:s0
+
+# FoD
+/system/bin/hw/vendor\.pa\.biometrics\.fingerprint\.inscreen@1.0-service\.oneplus_msmnile       u:object_r:hal_fod_msmnile_exec:s0
