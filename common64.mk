@@ -15,9 +15,6 @@ PRODUCT_COPY_FILES += \
     device/oneplus/oneplus7/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 PRODUCT_COPY_FILES += \
-    device/oneplus/oneplus7/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml
-
-PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 
 # Permission for Wi-Fi passpoint support
