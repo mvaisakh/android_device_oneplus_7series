@@ -158,6 +158,7 @@ TARGET_HW_DISK_ENCRYPTION_PERF := true
 # Fingerprint
 SOONG_CONFIG_NAMESPACES += oneplusMsmnileFodPlugin
 SOONG_CONFIG_oneplusMsmnileFodPlugin := posX posY size
+TARGET_SURFACEFLINGER_FOD_LIB := //$(VENDOR_PATH):libfod_extension.oneplus_msmnile
 
 BOARD_USES_GENERIC_AUDIO := true
 TARGET_NO_RPC := true
