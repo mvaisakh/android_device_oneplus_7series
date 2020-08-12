@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2020 The Linux Foundation. All rights reserved.
+# Copyright (c) 2020 Paranoid Android
+
 # config.mk
 #
 # Product-specific compile-time definitions.
