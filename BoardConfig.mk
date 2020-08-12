@@ -102,16 +102,16 @@ endif
 ENABLE_VENDOR_IMAGE := true
 ifeq ($(ENABLE_VENDOR_IMAGE), true)
 ifneq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
-TARGET_RECOVERY_FSTAB := device/oneplus/oneplus7/recovery_vendor_variant.fstab
+TARGET_RECOVERY_FSTAB := device/oneplus/7series/recovery_vendor_variant.fstab
 
 else
-TARGET_RECOVERY_FSTAB := device/oneplus/oneplus7/recovery_dynamic_partition.fstab
+TARGET_RECOVERY_FSTAB := device/oneplus/7series/recovery_dynamic_partition.fstab
 endif
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 else
-TARGET_RECOVERY_FSTAB := device/oneplus/oneplus7/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/oneplus/7series/recovery.fstab
 endif
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x06000000
@@ -130,7 +130,7 @@ TARGET_USES_NEW_ION_API :=true
 TARGET_USES_QCOM_BSP := false
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.usbcontroller=a600000.dwc3
 
-BOARD_EGL_CFG := device/onelpus/oneplus7/configs/egl.cfg
+BOARD_EGL_CFG := device/onelpus/7series/configs/egl.cfg
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096

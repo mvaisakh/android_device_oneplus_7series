@@ -2,7 +2,10 @@
 # Copyright (C) 2020 The Linux Foundation. All rights reserved.
 # Copyright (c) 2020 Paranoid Android
 
-$(call inherit-product, device/oneplus/oneplus7/base.mk)
+# Declare Common path
+COMMON_PATH := device/oneplus/7series
+
+$(call inherit-product, device/oneplus/7series/base.mk)
 
 # For PRODUCT_COPY_FILES, the first instance takes precedence.
 # Since we want use QC specific files, we should inherit
@@ -16,7 +19,7 @@ PRODUCT_MANUFACTURER := OnePlus
 
 # whitelisted app
 PRODUCT_COPY_FILES += \
-    device/oneplus/oneplus7/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
+    device/oneplus/7series/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
@@ -24,7 +27,7 @@ PRODUCT_COPY_FILES += \
 # Permission for Wi-Fi passpoint support
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml
 
-PRODUCT_PRIVATE_KEY := device/oneplus/oneplus7/configs/qcom.key
+PRODUCT_PRIVATE_KEY := device/oneplus/7series/configs/qcom.key
 
 #####Dynamic partition Handling
 ####
@@ -53,7 +56,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += fastbootd
 # Add default implementation of fastboot HAL.
 PRODUCT_PACKAGES += android.hardware.fastboot@1.0-impl-mock
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab_dynamic_partition.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+PRODUCT_COPY_FILES += $(COMMON_PATH)/fstab_dynamic_partition.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 BOARD_AVB_VBMETA_SYSTEM := system
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
@@ -64,7 +67,7 @@ endif
 
 #####Dynamic partition Handling
 
-$(call inherit-product, device/oneplus/oneplus7/common64.mk)
+$(call inherit-product, device/oneplus/7series/common64.mk)
 
 PRODUCT_BUILD_SYSTEM_OTHER_IMAGE := false
 PRODUCT_BUILD_VENDOR_IMAGE := true
@@ -154,7 +157,7 @@ PRODUCT_PACKAGES += libGLES_android
 
 # Video seccomp policy files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp/codec2.software.ext.policy:$(TARGET_COPY_OUT)/etc/seccomp_policy/codec2.software.ext.policy \
+    $(COMMON_PATH)/seccomp/codec2.software.ext.policy:$(TARGET_COPY_OUT)/etc/seccomp_policy/codec2.software.ext.policy \
 
 PRODUCT_BOOT_JARS += tcmiface
 
@@ -208,9 +211,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
 
-DEVICE_MANIFEST_FILE := device/oneplus/oneplus7/configs/manifest.xml
-DEVICE_MATRIX_FILE   := device/oneplus/oneplus7/configs/compatibility_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/oneplus/oneplus7/configs/framework_manifest.xml
+DEVICE_MANIFEST_FILE := device/oneplus/7series/configs/manifest.xml
+DEVICE_MATRIX_FILE   := device/oneplus/7series/configs/compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := device/oneplus/7series/configs/framework_manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
 
 #audio related module
@@ -222,10 +225,10 @@ PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0-impl
 
 # MSM IRQ Balancer configuration file
-PRODUCT_COPY_FILES += device/oneplus/oneplus7/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+PRODUCT_COPY_FILES += device/oneplus/7series/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 # Powerhint configuration file
-PRODUCT_COPY_FILES += device/oneplus/oneplus7/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+PRODUCT_COPY_FILES += device/oneplus/7series/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 
 # Vibrator
@@ -265,7 +268,7 @@ PRODUCT_PACKAGES += \
 
 # Sensor conf files
 PRODUCT_COPY_FILES += \
-    device/oneplus/oneplus7/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
+    device/oneplus/7series/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.gyroscope.xml \
@@ -284,14 +287,14 @@ PRODUCT_COPY_FILES += \
 
 #Exclude vibrator from InputManager
 PRODUCT_COPY_FILES += \
-    device/oneplus/oneplus7/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
+    device/oneplus/7series/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
 
 #Enable full treble flag
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
-DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus7/overlay
+DEVICE_PACKAGE_OVERLAYS += device/oneplus/7series/overlay
 
 #Enable vndk-sp Libraries
 PRODUCT_PACKAGES += vndk_package
@@ -311,7 +314,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ro.crypto.volume.filenames_mode = "aes-256-cts" \
 ro.crypto.allow_encrypt_override = true
 
-PRODUCT_COPY_FILES += device/oneplus/oneplus7/configs/manifest-qva.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest.xml
+PRODUCT_COPY_FILES += device/oneplus/7series/configs/manifest-qva.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest.xml
 
 # Target specific Netflix custom property
 PRODUCT_PROPERTY_OVERRIDES += \
