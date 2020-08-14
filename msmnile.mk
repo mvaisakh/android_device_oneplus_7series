@@ -11,9 +11,6 @@ $(call inherit-product, device/oneplus/7series/base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_BRAND := OnePlus
-PRODUCT_MANUFACTURER := OnePlus
-
 # whitelisted app
 PRODUCT_COPY_FILES += \
     device/oneplus/7series/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
@@ -29,18 +26,6 @@ PRODUCT_PRIVATE_KEY := device/oneplus/7series/configs/qcom.key
 #####Dynamic partition Handling
 ####
 #### Turning BOARD_DYNAMIC_PARTITION_ENABLE flag to TRUE will enable dynamic partition/super image creation.
-
-# By default this target is new-launch config, so set the default shipping level to 29 (if not set explictly earlier)
-SHIPPING_API_LEVEL ?= 29
-
-# Enable Dynamic partitions only for Q new launch devices.
-ifeq ($(SHIPPING_API_LEVEL),29)
-  BOARD_DYNAMIC_PARTITION_ENABLE := true
-  PRODUCT_SHIPPING_API_LEVEL := 29
-else ifeq ($(SHIPPING_API_LEVEL),28)
-  BOARD_DYNAMIC_PARTITION_ENABLE := false
-  $(call inherit-product, build/make/target/product/product_launched_with_p.mk)
-endif
 
 ifneq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
 # Enable chain partition for system, to facilitate system-only OTA in Treble.
@@ -64,20 +49,6 @@ endif
 
 #####Dynamic partition Handling
 
-$(call inherit-product, device/oneplus/7series/common64.mk)
-
-PRODUCT_BUILD_SYSTEM_OTHER_IMAGE := false
-PRODUCT_BUILD_VENDOR_IMAGE := true
-PRODUCT_BUILD_PRODUCT_IMAGE := false
-PRODUCT_BUILD_PRODUCT_SERVICES_IMAGE := false
-PRODUCT_BUILD_ODM_IMAGE := true
-PRODUCT_BUILD_CACHE_IMAGE := false
-PRODUCT_BUILD_RAMDISK_IMAGE := true
-PRODUCT_BUILD_USERDATA_IMAGE := true
-
-# Enable AVB 2.0
-BOARD_AVB_ENABLE := true
-
 PRODUCT_SOONG_NAMESPACES += \
     hardware/google/av \
     hardware/google/interfaces
@@ -88,12 +59,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=enforce
 endif
 
 TARGET_DEFINES_DALVIK_HEAP := true
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-
-#Initial bringup flags
-TARGET_USES_AOSP := false
-TARGET_USES_AOSP_FOR_AUDIO := false
-TARGET_USES_QCOM_BSP := false
 
 ###########
 #QMAA flags starts
@@ -286,26 +251,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/oneplus/7series/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
 
-#Enable full treble flag
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_VENDOR_MOVE_ENABLED := true
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-
 DEVICE_PACKAGE_OVERLAYS += device/oneplus/7series/overlay
 
 #Enable vndk-sp Libraries
 PRODUCT_PACKAGES += vndk_package
 
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
-
 #----------------------------------------------------------------------
 # wlan specific
 #----------------------------------------------------------------------
 include device/qcom/wlan/msmnile/wlan.mk
-
-TARGET_MOUNT_POINTS_SYMLINKS := false
-
-TARGET_USES_MKE2FS := true
 
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.crypto.volume.filenames_mode = "aes-256-cts" \
