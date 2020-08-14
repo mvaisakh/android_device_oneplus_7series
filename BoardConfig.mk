@@ -169,6 +169,3 @@ BOARD_VNDK_VERSION := current
 
 #Disable PHONY target checks for initial bringup
 BUILD_BROKEN_PHONY_TARGETS := true
-
--include vendor/qcom/prebuilt/msmnile/BoardConfigVendor.mk
--include $(QCPATH)/common/msmnile/BoardConfigVendor.mk
