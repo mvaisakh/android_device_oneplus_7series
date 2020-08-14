@@ -7,12 +7,6 @@
 # Product-specific compile-time definitions.
 #
 
-ifeq ($(SHIPPING_API_LEVEL),29)
-BOARD_SYSTEMSDK_VERSIONS:=29
-else
-BOARD_SYSTEMSDK_VERSIONS:=28
-endif
-
 # Platform
 TARGET_BOARD_PLATFORM := msmnile
 TARGET_BOOTLOADER_BOARD_NAME := msmnile
