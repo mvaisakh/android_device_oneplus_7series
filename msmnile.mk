@@ -7,6 +7,9 @@ COMMON_PATH := device/oneplus/7series
 
 $(call inherit-product, device/oneplus/7series/base.mk)
 
+# Inherit OnePlus Commmon
+$(call inherit-product, device/oneplus/common/common.mk)
+
 # For PRODUCT_COPY_FILES, the first instance takes precedence.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
