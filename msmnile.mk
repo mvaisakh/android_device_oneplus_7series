@@ -120,8 +120,6 @@ PRODUCT_PACKAGES += libGLES_android
 
 -include $(QCPATH)/common/config/qtic-config.mk
 
-PRODUCT_BOOT_JARS += tcmiface
-
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
