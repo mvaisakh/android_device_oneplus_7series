@@ -120,10 +120,6 @@ PRODUCT_PACKAGES += libGLES_android
 
 -include $(QCPATH)/common/config/qtic-config.mk
 
-# Video seccomp policy files
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/seccomp/codec2.software.ext.policy:$(TARGET_COPY_OUT)/etc/seccomp_policy/codec2.software.ext.policy \
-
 PRODUCT_BOOT_JARS += tcmiface
 
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
