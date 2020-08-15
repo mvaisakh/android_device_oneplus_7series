@@ -167,7 +167,13 @@ PRODUCT_VENDOR_MOVE_ENABLED := true
 #----------------------------------------------------------------------
 # wlan specific
 #----------------------------------------------------------------------
--include device/qcom/wlan/msmnile/BoardConfigWlan.mk
+QC_WIFI_HIDL_FEATURE_DUAL_AP := true
+TARGET_USES_AOSP_FOR_WLAN := false
+WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
+WIFI_DRIVER_STATE_ON := "ON"
+WIFI_DRIVER_STATE_OFF := "OFF"
+WIFI_HIDL_FEATURE_AWARE := true
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
 BUILD_BROKEN_DUP_RULES := true
 
