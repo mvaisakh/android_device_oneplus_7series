@@ -120,7 +120,9 @@ PRODUCT_PACKAGES += libGLES_android
 
 -include $(QCPATH)/common/config/qtic-config.mk
 
+# Media
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
+include hardware/qcom/media/conf_files/msmnile/msmnile.mk
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
 PRODUCT_PACKAGES += camera.device@3.2-impl
