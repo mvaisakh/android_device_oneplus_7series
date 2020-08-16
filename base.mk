@@ -646,11 +646,6 @@ ifeq ($(ENABLE_KM_4_0), true)
         ro.hardware.keystore_desede=true
 endif
 
-
-# gps/location secuity configuration file
-PRODUCT_COPY_FILES += \
-    device/oneplus/7series/config/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-
 #copy codecs_xxx.xml to (TARGET_COPY_OUT_VENDOR)/etc/
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
